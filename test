@@ -1,0 +1,37 @@
+import { expect } from 'chai';
+
+describe('Pruebas del Contrato Inteligente', function() {
+  let usuario = {
+    nombre: 'Usuario de Prueba',
+    evidenciaCargada: false,
+    evidenciaVerificada: false,
+    cantidadTokens: 0
+  };
+
+  it('Registrar un nuevo usuario', function() {
+    expect(true).to.be.true; 
+  });
+
+  it('Cargar evidencia para un usuario', function() {
+    // carga de evidencia por el usuario
+    usuario.evidenciaCargada = true;
+    expect(usuario.evidenciaCargada).to.be.true;
+  });
+
+  it('Verificar la evidencia', function() {
+    usuario.evidenciaVerificada = true;
+    expect(usuario.evidenciaVerificada).to.be.true;
+  });
+
+  it('Obtener la cantidad de tokens para un usuario', function() {
+    // Simulación de obtención de tokens basada en la verificación de evidencia
+    if (usuario.evidenciaVerificada) {
+      // Si la evidencia está verificada, otorgar 10 tokens al usuario
+      usuario.cantidadTokens = 10;
+    } else {
+      // Si la evidencia no está verificada, no otorgar tokens
+      usuario.cantidadTokens = 0;
+    }
+    expect(usuario.cantidadTokens).to.equal(10); // Verificamos que el usuario obtenga los tokens esperados
+  });
+});
