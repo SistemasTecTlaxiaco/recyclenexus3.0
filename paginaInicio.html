@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenida</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url('img1.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+        .menu-bar {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            position: absolute;
+            top: 0;
+        }
+        .menu-bar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .container h1 {
+            margin-bottom: 20px;
+        }
+        .container button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        .container button:hover {
+            background-color: #45a049;
+        }
+        /* Estilos para el menú desplegable */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-bar">
+        <a href="#menu">Menú</a>
+        <a href="qr.html">Escaneo de QR</a>
+        <a href="puntos-reciclaje.html">Puntos de concentración de reciclaje</a>
+        <a href="pagina-tokens.html">Tokens</a>
+    </div>
+    <div class="container">
+        <img src="img2.png" alt="Usuario" style="width: 100px;">
+        <h1>HOLA ¡Bienvenido/a!</h1>
+        <button onclick="window.location.href='editar-perfil.html'">Editar perfil</button>
+        <button onclick="window.location.href='mailto:?subject=Compartir%20Perfil&body=Hola,%20te%20comparto%20mi%20perfil%20de%20MyNearWallet.'">Compartir perfil</button>
+    </div>
+</body>
+</html>

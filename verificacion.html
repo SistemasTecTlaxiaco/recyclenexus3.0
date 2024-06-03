@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación de Código</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('img1.jpeg'); /* Ruta de tu imagen de fondo */
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .container h1 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .container input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            text-align: center; /* Alinea el texto al centro */
+        }
+        .container button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .container button:hover {
+            background-color: #45a049;
+        }
+        .container .cancel-button {
+            background-color: #f44336;
+        }
+        .container .cancel-button:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ingrese su código de verificación</h1>
+        <p>Ingrese su código de verificación que fue enviado a su dirección de correo electrónico</p>
+        <input type="text" id="verificationCode" placeholder="XXXX-XXXX" maxlength="8">
+        <button onclick="verifyCode()">Verificar y Comprobar</button>
+        <button class="cancel-button" onclick="cancelVerification()">Cancelar</button>
+    </div>
+
+    <script>
+        function verifyCode() {
+            const codeInput = document.getElementById('verificationCode');
+            const code = codeInput.value;
+
+            if (code.length === 8 && /^\d{8}$/.test(code)) {
+                window.location.href = 'paginaInicio.html';
+            } else {
+                alert('Por favor, ingrese un código de 8 dígitos.');
+            }
+        }
+
+        function cancelVerification() {
+            window.location.href = 'paginaInicio.html'; // O a cualquier otra página que desees redirigir al cancelar
+        }
+    </script>
+</body>
+</html>

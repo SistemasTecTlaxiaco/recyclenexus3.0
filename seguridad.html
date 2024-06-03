@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elige un método de seguridad</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('img.jpg'); 
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            background-color: #b0e0e6;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        .container h1 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .container p {
+            margin-bottom: 20px;
+        }
+        .container input[type="radio"] {
+            margin-bottom: 10px;
+        }
+        .container button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ELIGE UN MÉTODO DE SEGURIDAD</h1>
+        <p>Selecciona el tipo de seguridad y privacidad que quieres que protejan tus datos personales.</p>
+        <div>
+            <input type="radio" name="security" id="encryption" value="encryption">
+            <label for="encryption">Encriptación de extremo a extremo</label><br>
+            <input type="radio" name="security" id="two-factor" value="two-factor">
+            <label for="two-factor">Autenticación de dos factores</label><br>
+            <input type="radio" name="security" id="privacy-adjustments" value="privacy-adjustments">
+            <label for="privacy-adjustments">Ajuste de privacidad personalizados</label><br>
+            <input type="radio" name="security" id="privacy-policy" value="privacy-policy">
+            <label for="privacy-policy">Política de privacidad personalizados</label>
+        </div>
+        <button onclick="confirmSelection()">Confirmar</button>
+    </div>
+
+    <script>
+        function confirmSelection() {
+            const options = document.getElementsByName('security');
+            let selected = false;
+
+            for (const option of options) {
+                if (option.checked) {
+                    selected = true;
+                    break;
+                }
+            }
+
+            if (selected) {
+                window.location.href = 'verificacion.html';
+            } else {
+                alert('Por favor, selecciona un método de seguridad.');
+            }
+        }
+    </script>
+</body>
+</html>

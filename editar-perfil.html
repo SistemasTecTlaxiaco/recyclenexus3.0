@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url('img1.jpeg'); /* Ruta de tu imagen de fondo */
+            background-size: cover;
+            background-position: center;
+        }
+        .menu-bar {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            position: absolute;
+            top: 0;
+        }
+        .menu-bar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 300px;
+        }
+        .container h1 {
+            margin-bottom: 20px;
+        }
+        .container input[type="text"],
+        .container select,
+        .container textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .container button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        .container button:hover {
+            background-color: #45a049;
+        }
+        .container .cancel-button {
+            background-color: #f44336;
+        }
+        .container .cancel-button:hover {
+            background-color: #e31b0c;
+        }
+        .container .back-button {
+            background-color: #777;
+        }
+        .container .back-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-bar">
+        <a href="qr.html">Escaneo de QR</a>
+        <a href="#puntos-reciclaje">Puntos de concentración de reciclaje</a>
+        <a href="#menu">Menú</a>
+    </div>
+    <div class="container">
+        <h1>Editar Perfil</h1>
+        <input type="text" placeholder="Nombre Completo" />
+        <input type="text" placeholder="Nombre de Usuario" />
+        <select>
+            <option value="">Sexo</option>
+            <option value="male">Masculino</option>
+            <option value="female">Femenino</option>
+            <option value="other">Otro</option>
+        </select>
+        <textarea placeholder="Agregar una descripción"></textarea>
+        <button class="back-button" onclick="window.location.href='paginaInicio.html'">Regresar</button>
+        <button onclick="mostrarMensaje()">Confirmar</button>
+        <button class="cancel-button">Cancelar</button>
+    </div>
+
+    <script>
+        function mostrarMensaje() {
+            alert("¡Datos guardados correctamente!");
+        }
+    </script>
+</body>
+</html>
+
