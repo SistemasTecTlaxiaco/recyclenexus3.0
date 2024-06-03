@@ -1,20 +1,37 @@
 {
-  "name": "proyecto-pruebas",
+  "name": "contract",
   "version": "1.0.0",
-  "main": "index.js",
+  "license": "(MIT AND Apache-2.0)",
   "type": "module",
   "scripts": {
-    "test": "mocha"
+    "build": "near-sdk-js build src/contract.ts build/contract.wasm",
+    "test": "$npm_execpath build && ava -- ./build/contract.wasm"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
-    "chai": "^5.1.1",
-    "near-api-js": "^4.0.1"
+    "@types/chai": "^4.3.16",
+    "@types/mocha": "^10.0.6",
+    "express": "^4.19.2",
+    "mocha": "^10.4.0",
+    "near-api-js": "^4.0.2",
+    "near-cli": "^4.0.10",
+    "near-sdk-js": "1.0.0"
   },
   "devDependencies": {
-    "mocha": "^10.0.0"
-  }
+    "@ava/typescript": "^4.1.0",
+    "ava": "^6.1.2",
+    "chai": "^5.1.1",
+    "near-workspaces": "^3.5.0",
+    "ts-morph": "^22.0.0",
+    "ts-node": "^10.9.2",
+    "tsimp": "^2.0.11",
+    "typescript": "^5.4.2",
+    "vite": "^5.2.12"
+  },
+  "description": "The smart contract stores messages from users. Messages can be premium if the user attaches sufficient money (0.1 $NEAR).",
+  "main": "index.js",
+  "author": "",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": []
 }
