@@ -1,4 +1,4 @@
-# Contract
+# RecycleNexus
 
 El contrato inteligente de RecycleNexus permite registrar usuarios para que puedan interactuar con la Dapp y subir sus evidencias de reciclaje para que de acuerdo a ello obtengan tokens.
 
