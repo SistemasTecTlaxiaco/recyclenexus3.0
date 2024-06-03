@@ -1,6 +1,6 @@
 # Contract
 
-The smart contract stores messages from users. Messages can be `premium` if the user attaches sufficient money (0.1 $NEAR).
+El contrato inteligente de RecycleNexus permite registrar usuarios para que puedan interactuar con la Dapp y subir sus evidencias de reciclaje para que de acuerdo a ello obtengan tokens.
 
 ```ts
 this.messages = [];
