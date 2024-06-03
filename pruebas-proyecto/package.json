@@ -1,0 +1,20 @@
+{
+  "name": "proyecto-pruebas",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "chai": "^5.1.1",
+    "near-api-js": "^4.0.1"
+  },
+  "devDependencies": {
+    "mocha": "^10.0.0"
+  }
+}

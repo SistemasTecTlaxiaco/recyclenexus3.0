@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "target": "ES5",
+    "noEmit": true,
+    "noImplicitAny": false,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./build"
+  },
+  "files": [
+    "sandbox-ts/main.ava.ts",
+    "src/contract.ts",
+    "src/model.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
