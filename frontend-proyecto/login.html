@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Near - Crear cuenta</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('img.jpg'); 
+            background-size: cover;
+        }
+        .container {
+            background-color: white;
+            width: 300px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            text-align: center;
+        }
+        .container img {
+            display: block;
+            margin: 0 auto 20px; /* Centra la imagen y agrega un margen inferior */
+        }
+        .container h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .container button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            width: 100%; /* Hace que el botón ocupe todo el ancho del contenedor */
+            box-sizing: border-box; /* Incluye el padding dentro del ancho total */
+            margin-bottom: 10px; /* Espacio entre los botones */
+        }
+        .container button:hover {
+            background-color: #45a049;
+        }
+        .container p {
+            margin-top: 20px;
+        }
+        .equipo {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="near-protocol-bos-1.jpg" alt="Near Logo" style="width: 100px;">
+        
+        <button onclick="window.location.href='https://testnet.mynearwallet.com/'">Crear cuenta</button>
+        <p>Una vez que cree su cuenta sus datos serán almacenados en nuestra base de datos</p>
+        <button onclick="window.location.href='seguridad.html'">Empezar</button>
+        <p>¿Ya tienes una cuenta?</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyNearWallet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Tokens</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-image: url('img4.png'); 
+            background-size: cover; /* Asegura que la imagen de fondo cubra toda la pantalla */
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Mantiene la imagen de fondo fija al hacer scroll */
+            color: white; /* Ajusta el color del texto para asegurarte de que sea legible sobre el fondo */
+        }
+        .container {
+            display: flex;
+            width: 80%;
+            margin-top: 20px;
+            background-color: rgba(0, 0, 0, 0.5); /* Añade un fondo semi-transparente para mejorar la legibilidad */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .left, .right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .left {
+            margin-right: 20px;
+        }
+        .image-preview {
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white; /* Fondo blanco para la previsualización de la imagen */
+            color: black; /* Color del texto dentro del preview */
+        }
+        .image-preview img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .tokens-display {
+    margin-top: 10px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    width: 100px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro transparente */
+    color: white; /* Color del texto del contador */
+}
+
+        button {
+            margin-top: 10px;
+            background-color: #090909; /* Color de fondo del botón */
+            color: white; /* Color del texto del botón */
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #000000; /* Color del botón al pasar el ratón por encima */
+        }
+    </style>
+</head>
+<body>
+    <img src="near-protocol-bos-1.jpg" alt="Usuario" style="width: 200px;">
+    <h1>Tokens</h1>
+    
+    <div class="container">
+        <div class="left">
+            <h2>Cargar Evidencia</h2>
+            <input type="file" id="fileInput" accept="image/*" />
+            <div class="image-preview" id="imagePreview">No image selected</div>
+            <button onclick="sendImage()">Enviar</button>
+            <button onclick="cancelImage()">Cancelar</button>
+        </div>
+    
+        <div class="right">
+            <div class="balance-section">
+                <h2>Tokens</h2>
+                <div class="tokens-display" id="tokensDisplay">$<span id="tokenAmount">0</span>USD</div>
+                <button onclick="transactionToCrypto()">Transacción a Criptomonedas</button>
+                <p>Saldo disponible</p>
+                <div class="actions">
+                    <button><i class="fas fa-paper-plane"></i> <span>Enviar</span></button>
+                    <button><i class="fas fa-hand-holding-usd"></i> <span>Recibir</span></button>
+                    <button><i class="fas fa-check-circle"></i> <span>Completar</span></button>
+                    <button><i class="fas fa-exchange-alt"></i> <span>Intercambio</span></button>
+                </div>
+            </div>
+            
+            <button onclick="goToHomePage()">Página de Inicio</button>
+        </div>
+    </div>
+
+    <script>
+        // Recuperar el valor del contador de tokens del almacenamiento local al cargar la página
+        let tokenCount = parseInt(localStorage.getItem('tokenCount')) || 0;
+        document.getElementById('tokenAmount').textContent = tokenCount;
+
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('imagePreview');
+                    preview.innerHTML = `<img src="${e.target.result}" alt="Selected Image">`;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function sendImage() {
+            tokenCount += 10;
+            document.getElementById('tokensDisplay').textContent = tokenCount;
+            // Guardar el valor actualizado del contador de tokens en el almacenamiento local
+            localStorage.setItem('tokenCount', tokenCount);
+        }
+
+        function cancelImage() {
+            document.getElementById('fileInput').value = "";
+            document.getElementById('imagePreview').innerHTML = "No image selected";
+        }
+
+        function transactionToCrypto() {
+            alert('Transacción a Criptomonedas');
+        }
+
+        function goToHomePage() {
+            window.location.href = 'paginaInicio.html';
+        }
+    </script>
+</body>
+</html>

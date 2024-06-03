@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gmail</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background-color: #c90000;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        .header img {
+            width: 80px;
+            margin-right: 40px;
+        }
+        .main-content {
+            display: flex;
+            flex-grow: 1;
+        }
+        .sidebar {
+            background-color: #F1F3F4;
+            width: 250px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 0;
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: black;
+            padding: 10px 20px;
+            display: block;
+            cursor: pointer;
+        }
+        .sidebar a:hover {
+            background-color: #E8E8E8;
+        }
+        .content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: #FFF;
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 1px solid #DDD;
+            background-color: #F1F3F4;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #DDD;
+            border-radius: 20px;
+        }
+        .email-list {
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+        .email-item {
+            padding: 15px 20px;
+            border-bottom: 1px solid #DDD;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .email-item:hover {
+            background-color: #F1F3F4;
+        }
+        .email-subject {
+            font-weight: bold;
+        }
+        .email-snippet {
+            color: #555;
+        }
+        .email-time {
+            color: #888;
+        }
+        .compose-btn {
+            background-color: #c60808;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 20px;
+        }
+        .content-area {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r2.png" alt="Gmail Logo">
+        <h1>Gmail</h1>
+    </div>
+    <div class="main-content">
+        <div class="sidebar">
+            <button class="compose-btn">Redactar</button>
+            <a onclick="showContent('recibidos')">Recibidos</a>
+            <a onclick="showContent('destacados')">Destacados</a>
+            <a onclick="showContent('pospuestos')">Pospuestos</a>
+            <a onclick="showContent('enviados')">Enviados</a>
+            <a onclick="showContent('borradores')">Borradores</a>
+            <a onclick="showContent('spam')">Spam</a>
+            <a onclick="showContent('papelera')">Papelera</a>
+        </div>
+        <div class="content">
+            <div class="top-bar">
+                <div class="search-bar">
+                    <input type="text" placeholder="Buscar correo">
+                </div>
+            </div>
+            <div class="content-area" id="contentArea">
+                <!-- El contenido de correos recibidos por defecto -->
+                <div class="email-list">
+                    <div class="email-item">
+                        <div>
+                            <div class="email-subject">Asunto del correo 1</div>
+                            <div class="email-snippet">Este es el contenido del correo 1...</div>
+                        </div>
+                        <div class="email-time">12:34 PM</div>
+                    </div>
+                    <div class="email-item">
+                        <div>
+                            <div class="email-subject">Asunto del correo 2</div>
+                            <div class="email-snippet">Este es el contenido del correo 2...</div>
+                        </div>
+                        <div class="email-time">11:30 AM</div>
+                    </div>
+                    <div class="email-item">
+                        <div>
+                            <div class="email-subject">Asunto del correo 3</div>
+                            <div class="email-snippet">Este es el contenido del correo 3...</div>
+                        </div>
+                        <div class="email-time">10:15 AM</div>
+                    </div>
+                    <!-- Más elementos de correo -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showContent(option) {
+            let contentArea = document.getElementById('contentArea');
+            let content = '';
+
+            switch(option) {
+                case 'recibidos':
+                    content = `
+                        <div class="email-list">
+                            <div class="email-item">
+                                <div>
+                                    <div class="email-subject">Asunto del correo 1</div>
+                                    <div class="email-snippet">Este es el contenido del correo 1...</div>
+                                </div>
+                                <div class="email-time">12:34 PM</div>
+                            </div>
+                            <div class="email-item">
+                                <div>
+                                    <div class="email-subject">Asunto del correo 2</div>
+                                    <div class="email-snippet">Este es el contenido del correo 2...</div>
+                                </div>
+                                <div class="email-time">11:30 AM</div>
+                            </div>
+                            <div class="email-item">
+                                <div>
+                                    <div class="email-subject">Asunto del correo 3</div>
+                                    <div class="email-snippet">Este es el contenido del correo 3...</div>
+                                </div>
+                                <div class="email-time">10:15 AM</div>
+                            </div>
+                            <!-- Más elementos de correo -->
+                        </div>
+                    `;
+                    break;
+                case 'destacados':
+                    content = '<h2>Destacados</h2><p>Estos son tus correos destacados.</p>';
+                    break;
+                case 'pospuestos':
+                    content = '<h2>Pospuestos</h2><p>Estos son tus correos pospuestos.</p>';
+                    break;
+                case 'enviados':
+                    content = '<h2>Enviados</h2><p>Estos son tus correos enviados.</p>';
+                    break;
+                case 'borradores':
+                    content = '<h2>Borradores</h2><p>Estos son tus borradores de correos.</p>';
+                    break;
+                case 'spam':
+                    content = '<h2>Spam</h2><p>Estos son tus correos en la carpeta de spam.</p>';
+                    break;
+                case 'papelera':
+                    content = '<h2>Papelera</h2><p>Estos son tus correos en la papelera.</p>';
+                    break;
+                default:
+                    content = '<p>Seleccione una opción del menú para ver su contenido.</p>';
+                    break;
+            }
+
+            contentArea.innerHTML = content;
+        }
+    </script>
+</body>
+</html>
+

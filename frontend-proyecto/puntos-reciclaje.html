@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+    <Style>
+        h1{
+            text-align: center;
+        }
+        body{
+            background-image: url('img1.jpeg');
+        }
+    </Style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Simple con Leaflet.js</title>
+    <!-- Incluye los estilos de Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <!-- Define el tamaño del contenedor del mapa -->
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mapa </h1>
+    <!-- Crea un div donde se mostrará el mapa -->
+    <div id="map"></div>
+
+    <!-- Incluye la biblioteca de Leaflet.js -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Inicializa el mapa con Leaflet.js
+        var mymap = L.map('map').setView([51.505, -0.09], 13);
+
+        // Añade una capa de mapa base de OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+            maxZoom: 18,
+        }).addTo(mymap);
+
+        // Añade un marcador en una ubicación específica
+        L.marker([51.5, -0.09]).addTo(mymap)
+            .bindPopup('¡Hola!<br>Este es un marcador de ejemplo.')
+            .openPopup();
+    </script>
+</body>
+</html>
+
