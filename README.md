@@ -1,4 +1,4 @@
-# Guest Book Contract
+# Contract
 
 The smart contract stores messages from users. Messages can be `premium` if the user attaches sufficient money (0.1 $NEAR).
 
